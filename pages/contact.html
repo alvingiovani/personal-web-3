@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" style="scroll-behavior: smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>Khonsa Amanata</title>
+  </head>
+  <body class="font-[Poppins]">
+    <div id="header-placeholder"></div>
+    <!-- content 1 -->
+    <div class="h-[200px] flex flex-col justify-evenly text-center">
+      <div class="text-[#AB81AF] font-semibold text-[24px]">Contact</div>
+      <div class="text-[16px]">
+        Hello.. I am Khonsa Amanata. For all ilustrasion and design inquiries contact Khonsaamanata0@gmail.com <br />
+        Feel free to fill the form below to connect and see how we can possibly work together in the near future - Thanks!
+      </div>
+    </div>
+    <!-- end content 1 -->
+    <!-- content 2 -->
+    <form action="https://formkeep.com/f/04d49e698e5a" method="POST" class="mx-20 flex flex-col gap-4 justify-evenly text-[16px]" id="contact-form">
+      <div class="flex gap-8">
+        <div class="w-1/2 flex flex-col">
+          <label for="firstName">First Name </label>
+          <input type="text" class="bg-[#D9D9D9] h-[70px] p-3 rounded-md focus:outline-[#AB81AF]" id="firstName" name="First Name" required />
+        </div>
+        <div class="w-1/2 flex flex-col">
+          <label for="secondName">Second Name</label>
+          <input type="text" name="Second Name" id="secondName" class="bg-[#D9D9D9] h-[70px] p-3 rounded-md focus:outline-[#AB81AF]" />
+        </div>
+      </div>
+      <div class="w-full flex flex-col">
+        <label for="email">Email</label>
+        <input type="email" name="Email" id="email" class="bg-[#D9D9D9] h-[70px] p-3 rounded-md focus:outline-[#AB81AF]" required />
+      </div>
+      <div class="w-full flex flex-col">
+        <label for="subject">Subject</label>
+        <input type="text" name="Subject" id="subject" class="bg-[#D9D9D9] h-[70px] p-3 rounded-md focus:outline-[#AB81AF]" required />
+      </div>
+      <div class="w-full flex flex-col">
+        <label for="message">Message</label>
+        <textarea name="Message" id="message" cols="30" rows="10" class="bg-[#D9D9D9] h-[70px] p-3 rounded-md focus:outline-[#AB81AF]" required></textarea>
+      </div>
+      <button type="submit" class="bg-[#9A61A0] h-[60px] w-1/6 font-medium text-white text-[24px] rounded-md">Submit</button>
+    </form>
+    <!-- end content 2  -->
+    <div id="footer-placeholder"></div>
+
+    <script src="/script/headerfooter.js"></script>
+    <script>
+      //form script
+      const contactForm = document.getElementById("contact-form");
+
+      contactForm.addEventListener("submit", function (e) {
+        const url = e.target.action;
+        const formData = new FormData(contactForm);
+
+        fetch(url, {
+          method: "POST",
+          body: formData,
+          mode: "no-cors",
+        })
+          .then(() => {
+            //url thank you
+            window.location.href = "/pages/thanks.html";
+          })
+          .catch((e) => alert("Error Occured"));
+      });
+    </script>
+  </body>
+</html>
